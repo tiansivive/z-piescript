@@ -1,0 +1,227 @@
+{
+  "main": {
+    "id": "349f41b6e19dd446",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f3e2c2d8b63d749",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "88e4485063622f7a",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "37b789c501a52951",
+    "type": "split",
+    "children": [
+      {
+        "id": "7ae2ace4286be468",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90dd3a215baa757b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "98ca5a5a42d7fc76",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "recursion.language",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabeticalReverse"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "d890066e73e0da7e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4a8bf36b618ed4a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "66a5d49b0e9b3dce",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "00003e7f233b17c9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "zettels/curry-narrowing.language.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": true,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for curry-narrowing.language"
+            }
+          },
+          {
+            "id": "aab6af0a6ba50670",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "zettels/curry-narrowing.language.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from curry-narrowing.language"
+            }
+          },
+          {
+            "id": "39ca56415ee47275",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "10653440f79b8d7f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "47a45c43d8e2e551",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "zettels/curry-narrowing.language.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of curry-narrowing.language"
+            }
+          },
+          {
+            "id": "f1c97e1f08efeaaf",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "smart-connections-view"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 478.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "90dd3a215baa757b",
+  "lastOpenFiles": [
+    "zettels/watchlist-cross-ref.example.md",
+    "zettels/variant-arm-typing.language.md",
+    "zettels/repeat-tcon.types.md",
+    "zettels/repeat-design-exploration.note.md",
+    "zettels/recursive-closure-shipping.coordination.md",
+    "zettels/recursion-phase1.queue.md",
+    "zettels/recursion-phase1.implementation.md",
+    "zettels/recursion-closeout.session.md",
+    "zettels/pattern-guards.language.md",
+    "zettels/mixed-type-branches.obstacle.md",
+    "zettels/cross-node-testing-layers.principle.md",
+    "zettels/zam.abstract-machine.md",
+    "zettels/wu-schrijvers-fusion.paper.md",
+    "zettels/write-context.data.md",
+    "zettels/where-clauses.language.md",
+    "zettels/wadler-propositions-as-sessions.paper.md",
+    "zettels/wadler-comprehending-monads.paper.md",
+    "zettels/vertical-slice-testing.principle.md",
+    "zettels/value-proposition.principle.md",
+    "zettels/union-find-propagation.types.md",
+    "zettels/type-aliases.language.md",
+    "zettels/tying-the-knot.technique.md",
+    "zettels/two-type-var-schema.technique.md",
+    "zettels/trampolining.technique.md",
+    "zettels/top-level-channel.question.md",
+    "zettels/termination-analysis.theory.md",
+    "Untitled.canvas",
+    "zettels",
+    "catalog.py",
+    "reviews",
+    "queues"
+  ]
+}
