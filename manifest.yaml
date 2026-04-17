@@ -1,0 +1,46 @@
+name: z-piescript
+description: Piescript design space zettelkasten
+schema_version: 1
+
+project:
+  name: piescript
+  repo: tiansivive/elasticsearch
+  path: x-pack/plugin/piescript
+  branch: play/piescript
+
+federation:
+  hub: z-loom
+  namespace: piescript
+  uri_scheme: "loom://piescript/{zettel_id}"
+
+backend:
+  current: github
+  github_repo: tiansivive/z-piescript
+  neo4j_endpoint: null # upgrade path: fill in when graph-backed
+
+entry_points:
+  readme: README.md
+  vocabulary: VOCABULARY.md
+  workflow: WORKFLOW.md
+  metrics: metrics.md
+  paper_trail: thread.md
+
+zettels:
+  path: "zettels/{id}.md"
+  format: markdown
+  frontmatter:
+    required: [tags]
+    optional: [refs]
+
+scripts:
+  catalog: scripts/catalog.py
+  queue: scripts/queue.py
+  roadmap: scripts/roadmap_status.py
+  adr_index: scripts/adr_index.py
+
+dist:
+  path: dist/
+  files:
+    catalog: CATALOG.md
+    queue: QUEUE.md
+    roadmap: ROADMAP.md

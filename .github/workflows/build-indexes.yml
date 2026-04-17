@@ -1,0 +1,44 @@
+name: Build indexes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'zettels/**'
+      - 'scripts/**'
+      - 'thread.md'
+
+  workflow_dispatch:
+
+jobs:
+  build-indexes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml rich
+
+      - name: Generate catalog
+        run: python3 scripts/catalog.py --markdown --compact > dist/CATALOG.md
+
+      - name: Generate queue
+        run: python3 scripts/queue.py --markdown > dist/QUEUE.md
+
+      - name: Generate roadmap
+        run: python3 scripts/roadmap_status.py --markdown > dist/ROADMAP.md
+
+      - name: Commit dist/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/
+          git diff --cached --quiet || git commit -m "Regenerate dist/ indexes"
+          git push
