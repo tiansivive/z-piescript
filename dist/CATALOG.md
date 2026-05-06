@@ -1,6 +1,7 @@
-# Design Space Catalog (502 items)
+# Design Space Catalog (505 items)
 
 - **Accessor Sugar** `accessor-sugar.language.md` [language, syntax, row-types, implemented, documentation]
+- **Action Prefix Rename** `action-prefix-rename.infrastructure.md` [infrastructure, es-internals, security, transport-layer, tech-debt, task, known-issue, deferred, migration]
 - **Actor Model Lifecycle** `actor-model.lifecycle.md` [lifecycle, external, designed, feature, concept, needs-design, someday]
 - **Algebraic Data Types** `adts.types.md` [types, language, open, feature, concept, needs-design, next]
 - **Agg/StripAgg Wrapper Type (Rejected)** `agg-stripag.rejected.md` [esql, types, rejected, concept, aggregation, nbe]
@@ -84,6 +85,7 @@
 - **Curry Narrowing** `curry-narrowing.language.md` [language, theoretical, control-flow, pi-calculus]
 - **Currying** `currying.language.md` [language, implemented, syntax, documentation]
 - **Cursor Plan Template** `cursor-plan-template.meta.md` [meta, workflow, tooling]
+- **Closure Cycle Detection in Serialization** `cycle-detection.serialization.infrastructure.md` [infrastructure, serialization, mobility, recursion, implemented]
 - **Data Access** `data-access-architecture.roadmap.md` [hub, data, types, designed]
 - **Data Access Diagram** `data-access-diagram.md` [data, types, documentation, diagram]
 - **Data Access Hierarchy** `data-access-hierarchy.md` [data, types, designed, concept]
@@ -375,6 +377,7 @@
 - **Recursion** `recursion.hub.md` [language, control-flow, hub, now, recursion]
 - **Recursive Closure Shipping** `recursive-closure-shipping.coordination.md` [coordination, distributed, mobility, recursion, testing, implemented]
 - **Recursive Types** `recursive-types.types.md` [types, open, control-flow, task, concept, needs-design, later, recursion]
+- **Reference-Table Encoding** `reference-table-encoding.technique.md` [technique, serialization, concept]
 - **Repeat Design Exploration** `repeat-design-exploration.note.md` [language, control-flow, recursion, iteration, note, paper-trail, continuation, search]
 - **Repeat a — Builtin Type Constructor** `repeat-tcon.types.md` [types, recursion, iteration, decided, concept, kinds]
 - **REPL** `repl.tooling.md` [tooling, open, feature, task]
