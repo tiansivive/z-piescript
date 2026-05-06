@@ -20,3 +20,5 @@ closed over it see the updated value.
 - uses: [[de-bruijn-indices.language]] — self-reference is a de Bruijn index pointing into the pre-allocated slot
 - part-of: [[recursion.hub]]
 - analogous-to: ML/OCaml `let rec` implementation
+- complemented-by: [[cycle-detection.serialization.infrastructure]] — wire-side counterpart that preserves the backpatched cycle across nodes
+- shares-shape-with: [[reference-table-encoding.technique]] — both: allocate shell, register, populate; identity preserved by shared mutation

@@ -29,3 +29,4 @@ refs:
 - complements: [[auth-checks.elaboration]] — compile-time auth checks complement the runtime namespace
 - constrains: [[transport-send.infrastructure]] — send action uses the internal namespace
 - constrains: [[eval-endpoint.infrastructure]] — eval endpoint uses the cluster:compute namespace
+- tension-with: [[action-prefix-rename.infrastructure]] — `cluster:compute/` is rejected by `TransportService.VALID_ACTION_PREFIXES`; rename pending (would supersede D-055)

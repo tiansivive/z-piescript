@@ -16,6 +16,7 @@ Five outstanding items related to Elasticsearch plugin conventions and productio
 - **Merge eval/dev endpoints** — Both REST handlers dispatch to `TransportPiescriptAction` with a `dev` flag. Future: single `/_piescript/eval?dev` endpoint, eliminating `RestPiescriptDevAction`.
 - **Duplicate `parseProgram()`** — `RestPiescriptAction` and `RestPiescriptDevAction` have identical methods. Extract to shared utility. Goes away when endpoints merge.
 - **Empty mapping diagnostics** — When [[field-caps-resolution.data]] returns no usable fields, the elaborator silently produces `List { }`. Downstream type errors ("missing fields in `{ }`") are confusing when the real issue is a missing or unmapped index.
+- **Invalid action prefix** — `PiescriptAction.NAME = "cluster:compute/piescript"` is not in `TransportService.VALID_ACTION_PREFIXES`; ES logs a WARN at startup. Cosmetic today, but ES has a TODO to promote the check to a hard error. See [[action-prefix-rename.infrastructure]].
 
 **Depends on**: [[transport-pipeline.infrastructure]], [[es-plugin.infrastructure]]
 **Enables**: (none — production hardening)
@@ -24,3 +25,4 @@ Five outstanding items related to Elasticsearch plugin conventions and productio
 - related: [[transport-versioning.infrastructure]] — another ES conventions gap
 - related: [[dev-endpoint.tooling]] — the endpoints that need merging
 - related: [[field-caps-resolution.data]] — empty mapping produces confusing errors
+- includes: [[action-prefix-rename.infrastructure]] — invalid `cluster:compute/piescript` prefix

@@ -18,6 +18,7 @@ loop-match (`loop`/`repeat` with `Repeat a` TCon).
 - implements: [[tying-the-knot.technique]] — mutable slot + backpatch in evaluator
 - implements: [[guarded-recursion.technique]] — static rejection of unguarded self-references
 - implements: [[repeat-tcon.types]] — Repeat a builtin TCon for type-level enforcement
+- implements: [[cycle-detection.serialization.infrastructure]] — cycle-aware closure serialization so recursive closures survive the wire
 - uses: [[core-match.language]] — loop arms reuse Alternative/Pattern from match
 - uses: [[cps-evaluation.language]] — RepeatVal flows through CPS listener chain
 - tracked-by: [[recursion-phase1.queue]]

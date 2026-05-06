@@ -487,3 +487,6 @@ SPAWN [[recursion-closeout.session]] — implementation closeout summary session
 RESOLVED [[recursion-phase1.queue]] — all checklist items complete and synced with plan
 RESOLVED `recursion_phase1.plan.md` close-out — docs, thread, debug scripts, and verification reconciled
 RESOLVED new-zettels confirmation — user approved and zettels created for recursion closeout learnings
+RESOLVED cycle-aware closure serialization shipped (not deferred) — [[cycle-detection.serialization.infrastructure]] + [[reference-table-encoding.technique]] added 2026-05-04 reconciliation
+
+ENQUEUE [[action-prefix-rename.infrastructure]] — 2026-05-06: starting a node surfaced `WARN invalid action name [cluster:compute/piescript]`; D-055's custom prefix isn't in `TransportService.VALID_ACTION_PREFIXES`. Cosmetic today, hard error pending. Tech debt; will need ADR to supersede D-055.

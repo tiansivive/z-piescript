@@ -15,7 +15,7 @@ Three centralized classes:
 - `CoreExprSerialization` (17+ [[core-ir.language|CoreExpr]] variants).
 - `TypeSerialization` (`MonoType`, `RowType`, `LitVal`, `Op`, `Kind`).
 
-[[closure-val.language|ClosureVal]] serializes body + env recursively. `BuiltinVal` serializes name + arity + partial args.
+[[closure-val.language|ClosureVal]] serializes body + env recursively, with a reference-table protocol for cycles — see [[cycle-detection.serialization.infrastructure]]. `BuiltinVal` serializes name + arity + partial args.
 
 **Depends on**: [[core-ir.language]], [[closure-val.language]]
 **Enables**: [[code-mobility.coordination]], [[send.coordination]]
@@ -23,4 +23,5 @@ Three centralized classes:
 - part-of: [[block-c.roadmap]]
 - constrains: no `TransportVersion` guards (tech debt) — deserialized nodes use synthetic `WIRE_SOURCE`
 - complements: [[serialization-boundary.infrastructure]] — defines which Value variants can cross the wire
+- refines: [[cycle-detection.serialization.infrastructure]] — cycle-handling protocol for ClosureVal graphs
 - blocks: [[transport-versioning.infrastructure]] — the missing version guards are tracked there

@@ -21,6 +21,8 @@ See [[error-handling.thread]], [[language-expressiveness.thread]],
 - [ ] [[lsp.tooling]] — Language Server Protocol implementation
 - [ ] [[syntax-highlighting.tooling]] — syntax highlighting definitions
 - [ ] [[repl.tooling]] — REPL / interactive evaluation mode
+- [ ] `ResolvedMapping.partiallyUnmappedFields` is dead post-rebase (2026-04-15) — `IndexResolutionPrePass` passes `trackUnmappedFieldIndices=false` (matching ESQL's default after #145991), so `EsIndex.fieldToUnmappedIndices()` is always empty and the field is unread by the elaborator. Decide: drop the field from `ResolvedMapping`, or opt into tracking (carries the ESQL #145920 OOM risk) if the elaborator should surface partial-mapping diagnostics
+- [ ] [[action-prefix-rename.infrastructure]] — `PiescriptAction.NAME = "cluster:compute/piescript"` is not in `TransportService.VALID_ACTION_PREFIXES`; ES logs WARN at startup and has a TODO to promote it to a hard error. Rename to `cluster:admin/piescript/eval` (or similar) and supersede D-055
 
 ## Resolved items
 

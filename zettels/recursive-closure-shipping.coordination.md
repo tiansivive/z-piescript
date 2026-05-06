@@ -10,7 +10,9 @@ Shipping closures that capture recursive bindings to remote node inboxes.
 In piescript, implicit recursion uses tying-the-knot backpatching in the closure
 environment. A closure that references a recursive binding (for example `fact`) can be
 serialized, sent through `send node.inbox`, and evaluated remotely while preserving the
-captured recursive environment semantics.
+captured recursive environment semantics. The wire mechanism is
+[[cycle-detection.serialization.infrastructure]] — closures and their cyclic env arrays
+survive the round-trip with identity preserved.
 
 This is a cross-feature seam between recursion and mobility: if either closure
 serialization or recursive environment capture regresses, remote execution fails even when
@@ -21,6 +23,7 @@ local recursion still works.
 **Connections**:
 - part-of: [[block-c.roadmap]]
 - uses: [[closure-val.language]] -- closure body + environment travel over the wire
+- uses: [[cycle-detection.serialization.infrastructure]] -- wire mechanism that preserves recursive env identity
 - uses: [[transport-channels.infrastructure]] -- wire transport for remote inbox evaluation
 - validates: [[recursion.hub]] -- recursive env capture survives cross-node execution
 - validated-by: [[cross-node-testing-layers.principle]] -- distributed behavior covered across testing layers

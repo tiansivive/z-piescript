@@ -43,4 +43,5 @@ structured iteration. General trampoline deferred pending the execution model qu
 - tension-with: [[mixed-type-branches.obstacle]] — Repeat a creates limitation on mixed-type branches
 - enhanced-by: [[pattern-guards.language]] — future: guards solve conditional repeat
 - enhanced-by: [[variant-arm-typing.language]] — future: variants enable mixed-type arms
+- uses: [[cycle-detection.serialization.infrastructure]] — wire-side mechanism that lets recursive closures travel between nodes
 - supersedes: recursion.language (deleted) — this hub replaced the original monolithic zettel
