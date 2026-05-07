@@ -1,6 +1,6 @@
-# Roadmap Threads (7 threads, 75 items)
+# Roadmap Threads (7 threads, 79 items)
 
-## Data Completeness (1 implemented, 2 designed, 11 open)
+## Data Completeness (1 implemented, 2 designed, 14 open)
 
 > From finishing Block G tests to handling every ES data type correctly. This thread covers the gaps between piescript's current data handling and what real-world ES indices require — timestamps, multi-value fields, proper string handling, ESQL coverage, and infrastructure hardening.
 
@@ -19,6 +19,9 @@
 | later | ○ | ESQL LOOKUP JOIN |
 | later | ○ | Logical Plan Compilation |
 | later | ○ | MV Type Constructor |
+| needs-design | ○ | Unmapped Field Surfacing |
+| needs-design | ○ | Use With Annotations |
+|  | ○ | Dynamic Field Types |
 | now | ✓ | Block G — Streaming Data Access via Compute Engine |
 
 ## Distributed Coordination (6 open)
@@ -63,7 +66,7 @@
 |----------|--------|------|
 |  | ○ | Incremental Risk Scoring Example |
 
-## Language Expressiveness (6 implemented, 1 designed, 21 open)
+## Language Expressiveness (6 implemented, 1 designed, 22 open)
 
 > From recursion and string concat to typeclasses, comprehensions, and a module system. This thread covers the features that make piescript expressive enough to write real programs — control flow, data manipulation operators, abstraction mechanisms, and reusable definitions.
 
@@ -79,6 +82,7 @@
 | later | ○ | Traverse Combinator |
 | later | ○ | Comprehension Syntax |
 | later | ○ | Recursive Types *(shared: type-foundations)* |
+| later | ○ | Concat Operators |
 | later | ○ | Exhaustiveness Checking *(shared: error-handling)* |
 | later | ○ | Pattern Reuse |
 | later | ○ | Record Spread |

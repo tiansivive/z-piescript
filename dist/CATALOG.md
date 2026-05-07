@@ -1,4 +1,4 @@
-# Design Space Catalog (505 items)
+# Design Space Catalog (509 items)
 
 - **Accessor Sugar** `accessor-sugar.language.md` [language, syntax, row-types, implemented, documentation]
 - **Action Prefix Rename** `action-prefix-rename.infrastructure.md` [infrastructure, es-internals, security, transport-layer, tech-debt, task, known-issue, deferred, migration]
@@ -71,6 +71,7 @@
 - **Compute Engine Integration Session** `compute-engine-integration.session.md` [paper-trail, data, columnar, streaming, performance]
 - **Elasticsearch Compute Engine** `compute-engine.es.md` [es-internals, compute-engine, documentation, concept, implemented]
 - **Compute Exchange: ExchangeService** `compute-exchange-service.es.md` [es-internals, compute-engine, columnar, infrastructure, documentation, implemented]
+- **Concat Operators** `concat-operators.language.md` [language, syntax, operator, types, typeclasses, open, concept, needs-design, later]
 - **Concrete-Row Constraints** `concrete-row-constraints.types.md` [types, data, row-types, implemented, concept]
 - **Content-Addressed Code** `content-addressed-code.tooling.md` [tooling, ir, theoretical]
 - **Coordinator-Bound Compute** `coordinator-bound-compute.distributed.md` [distributed, performance, known-issue, problem]
@@ -122,6 +123,7 @@
 - **DryadLINQ and FlumeJava** `dryadlinq.comparable.md` [comparable, theoretical, prior-art, reference, query-theory]
 - **Dunfield & Krishnaswami -- Complete and Easy Bidirectional Typechecking** `dunfield-krishnaswami.paper.md` [paper, types, inference, polymorphism, theoretical, language, ir, reference]
 - **Dynamic Fan-Out** `dynamic-fan-out.coordination.md` [coordination, concurrency, open, concept, needs-design, later]
+- **Dynamic Field Types** `dynamic-field-types.data.md` [data, types, row-types, open, problem, exploration]
 - **Dynamic Index Names** `dynamic-index-names.data.md` [data, types, open, concept, question]
 - **Eager Materialization** `eager-materialization.data.md` [data, tech-debt, materialization, task, known-issue]
 - **Effect Handlers** `effect-handlers.types.md` [types, effects, evaluation, open, concept]
@@ -483,8 +485,10 @@
 - **Unified Double** `unified-double.types.md` [types, primitives, implemented, decision, concept]
 - **Union-Find Propagation for Concrete Rows** `union-find-propagation.types.md` [types, inference, unification, implemented, concept]
 - **Universal vs Topic Tag Groups** `universal-vs-topic.meta.md` [meta]
+- **Unmapped Field Surfacing** `unmapped-field-surfacing.data.md` [data, types, row-types, open, concept, needs-design]
 - **Update Sugar** `update-sugar.language.md` [syntax, language, row-types, implemented, documentation]
 - **Use Declarations** `use-declarations.data.md` [data, language, implemented, documentation]
+- **Use With Annotations** `use-with-annotations.data.md` [data, types, row-types, language, syntax, open, concept, needs-design]
 - **Value Proposition** `value-proposition.principle.md` [principle, meta, concept]
 - **Value Restriction** `value-restriction.types.md` [types, implemented, polymorphism, safety, decision, concept]
 - **Variant-Based Arm Typing** `variant-arm-typing.language.md` [language, types, control-flow, pattern-matching, open, needs-design, later]
