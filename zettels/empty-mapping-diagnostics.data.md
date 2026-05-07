@@ -20,3 +20,4 @@ problem site rather than a cryptic structural type error downstream.
 **Connections**:
 - solves: [[field-caps-resolution.data]] — addresses the empty mapping tech debt noted there
 - related: [[elaboration-architecture.types]] — diagnostic would be emitted during elaboration
+- related: [[dynamic-field-types.data]] — adjacent diagnostic concern in the same area

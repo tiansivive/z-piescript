@@ -22,5 +22,6 @@ All three are future work. Static `use` declarations cover the common case where
 **Enables**: (none directly)
 **Connections**:
 - contrasts-with: [[use-declarations.data]] — static names (via `use`) get full type safety; dynamic names are the escape hatch
+- contrasts-with: [[dynamic-field-types.data]] — sibling "dynamic": index NAMES (this) vs FIELD SET (sibling)
 - related: [[typeclasses.types]] — Reflect typeclass approach requires typeclass machinery
 - tradeoff-with: [[gadt-rejection.types]] — GADT-based refinement option would require OutsideIn(X)

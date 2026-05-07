@@ -21,8 +21,9 @@ See [[error-handling.thread]], [[language-expressiveness.thread]],
 - [ ] [[lsp.tooling]] — Language Server Protocol implementation
 - [ ] [[syntax-highlighting.tooling]] — syntax highlighting definitions
 - [ ] [[repl.tooling]] — REPL / interactive evaluation mode
-- [ ] `ResolvedMapping.partiallyUnmappedFields` is dead post-rebase (2026-04-15) — `IndexResolutionPrePass` passes `trackUnmappedFieldIndices=false` (matching ESQL's default after #145991), so `EsIndex.fieldToUnmappedIndices()` is always empty and the field is unread by the elaborator. Decide: drop the field from `ResolvedMapping`, or opt into tracking (carries the ESQL #145920 OOM risk) if the elaborator should surface partial-mapping diagnostics
+- [ ] `ResolvedMapping.partiallyUnmappedFields` is dead post-rebase (2026-04-15) — `IndexResolutionPrePass` passes `trackUnmappedFieldIndices=false` (matching ESQL's default after #145991), so `EsIndex.fieldToUnmappedIndices()` is always empty and the field is unread by the elaborator. Resolution is now coupled to [[unmapped-field-surfacing.data]]: either drop the field, or actually populate it (with the ESQL #145920 OOM risk) and put it to use
 - [ ] [[action-prefix-rename.infrastructure]] — `PiescriptAction.NAME = "cluster:compute/piescript"` is not in `TransportService.VALID_ACTION_PREFIXES`; ES logs WARN at startup and has a TODO to promote it to a hard error. Rename to `cluster:admin/piescript/eval` (or similar) and supersede D-055
+- [ ] [[dynamic-field-types.data]] — fields missing from the merged field-caps view (sparse / user-known runtime fields) can't be referenced today. Two paths drafted: [[unmapped-field-surfacing.data]] (sparse, automatic, also resolves the `partiallyUnmappedFields` cleanup) and [[use-with-annotations.data]] (general, `use ... with { ... }` syntax)
 
 ## Resolved items
 

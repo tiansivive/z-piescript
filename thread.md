@@ -490,3 +490,7 @@ RESOLVED new-zettels confirmation — user approved and zettels created for recu
 RESOLVED cycle-aware closure serialization shipped (not deferred) — [[cycle-detection.serialization.infrastructure]] + [[reference-table-encoding.technique]] added 2026-05-04 reconciliation
 
 ENQUEUE [[action-prefix-rename.infrastructure]] — 2026-05-06: starting a node surfaced `WARN invalid action name [cluster:compute/piescript]`; D-055's custom prefix isn't in `TransportService.VALID_ACTION_PREFIXES`. Cosmetic today, hard error pending. Tech debt; will need ADR to supersede D-055.
+
+SPAWN [[dynamic-field-types.data]] + [[unmapped-field-surfacing.data]] + [[use-with-annotations.data]] — 2026-05-07: `kibana.alert.risk_score` missing from `_field_caps` motivated splitting "field set unknown to caps" into two paths (auto-surface partial-mapping via `include_unmapped`; user `with { ... }` annotation). Verification depths and Maybe-vs-T linked to [[null-as-bottom.types]]. All deferred pending verification of the immediate field-caps behaviour.
+
+RESOLVED `List.concat` builtin shipped 2026-05-07 — addresses immediate list concat gap; operator form `++` deferred to [[concat-operators.language]] (new). [[string-concat.language]] reframed; [[watchlist-cross-ref.example]] note updated.

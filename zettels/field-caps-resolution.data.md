@@ -19,3 +19,4 @@ refs:
 - constrains: [[elaboration-architecture.types]] — static schema at elaboration time; empty mapping produces confusing errors (tech debt: emit diagnostic)
 - uses: [[nested-record-types.data]] — field caps recursively builds nested record types for OBJECT fields
 - prerequisite-for: [[index-type.data]] — field caps resolution produces the row type r carried by Index r
+- enables: [[unmapped-field-surfacing.data]] — `include_unmapped=true` on field caps surfaces partial-mapping fields

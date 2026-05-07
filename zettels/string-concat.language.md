@@ -7,15 +7,17 @@ refs:
 ---
 # String Concat
 
-No way to concatenate Keyword values.
+No way to concatenate `Keyword` values today. List concat is solved at the
+builtin level (`List.concat`); the equivalent for strings (`Keyword.concat`)
+is not yet shipped.
 
-- Proposed: `<>` for string concat (Haskell Semigroup, Elixir convention).
-- `++` for list concat.
-- Both are future [[typeclasses.types|typeclass]] candidates (`Semigroup.<>`).
+Operator forms (`<>` for strings, `++` for lists) are deferred to
+[[concat-operators.language]] — they would be sugar over the builtins,
+ideally as Semigroup typeclass methods.
 
 **Depends on**: [[keyword-string.types]]
 **Enables**: (none directly)
 **Connections**:
-- prerequisite-for: [[typeclass-instances.types]] — Semigroup.<> candidate for string concat
+- prerequisite-for: [[concat-operators.language]] — `Keyword.concat` builtin needed before `<>` operator
 - uses: [[keyword-string.types]] — operates on KeywordVal String representation
 - blocks: some user programs that need to build strings dynamically

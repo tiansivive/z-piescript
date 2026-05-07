@@ -15,8 +15,9 @@ Specific [[typeclasses.types]] instances:
 These are the concrete instances that make the typeclass system useful -- each one unlocks specific combinators and optimizations for the types that implement them.
 
 **Depends on**: [[typeclasses.types]]
-**Enables**: [[push-down-compilation.performance]], [[query-typeclass.data]], [[groupby.language]], [[string-concat.language]]
+**Enables**: [[push-down-compilation.performance]], [[query-typeclass.data]], [[groupby.language]], [[string-concat.language]], [[concat-operators.language]]
 **Connections**:
 - related: [[bird-meertens.types]] — Monoid enables parallel reduce
 - implements: [[traverse.language]] — Traversable instance
 - extends: [[typeclasses.types]] — instances make the typeclass system concrete
+- enables: [[concat-operators.language]] — Semigroup instance for `Keyword`/`List a` would back `<>`/`++`

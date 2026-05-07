@@ -21,3 +21,4 @@ refs:
 - contrasts-with: [[dynamic-index-names.data]] — static index resolution gives full type safety; dynamic index names are future work
 - uses: [[index-type.data]] — use declarations produce typed Index r values
 - uses: [[nested-record-types.data]] — use declarations support nested record types from OBJECT fields
+- extended-by: [[use-with-annotations.data]] — `with { ... }` clause adds user-supplied row extension

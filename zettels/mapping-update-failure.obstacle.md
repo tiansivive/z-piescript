@@ -24,3 +24,4 @@ Path 2 aligns better with piescript's philosophy of catching errors early via th
 - informs: [[create-vs-index.data]] -- CREATE semantics interact with mapping updates differently than INDEX
 - tension-with: [[es-conventions-debt.infrastructure]] -- piescript bypasses the standard write path that handles mapping updates
 - informs: [[write-context.data]] -- WriteContext abstraction would need to address mapping update handling
+- related: [[dynamic-field-types.data]] -- read-side counterpart; both deal with field caps gaps

@@ -23,3 +23,5 @@ v0: `Null` unifies with every type. Known unsound -- a `NullVal` can appear wher
 - motivates: [[pattern-matching.hub]] — proper resolution requires pattern matching for Option/Maybe
 - uses: [[unification-algorithm.types]] — Null unifies with every type as a special case in the unifier
 - motivates: [[result-types.types]] — Option/Maybe type is the proper fix for nullable values
+- tension-with: [[unmapped-field-surfacing.data]] — Maybe T vs T for partial-mapping fields
+- tension-with: [[use-with-annotations.data]] — annotated-but-absent fields face the same question

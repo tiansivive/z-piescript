@@ -18,3 +18,4 @@ Three built-in row operators: `&` ([[row-merge-semantics.types|merge, right-bias
 - example-of: [[nbe-dual-pattern.types]] — operators are reducible builtins in force
 - uses: [[force-threading.types]] — reduced by the force normalizer at point of use
 - analogous-to: [[maplist-operator.types]] — proposed MapList follows the same reducible-builtin pattern
+- enables: [[use-with-annotations.data]] — `&` is the merge mechanism for user-supplied row extensions on `use`

@@ -110,8 +110,13 @@ is correct — exactly the kind of ad-hoc cross-index analysis that piescript is
 
 ## Notes
 
-- `++` (list concat) is not yet implemented — tagged `next` on the language-expressiveness
-  thread. Would use `List.concat` or similar builtin in the interim.
+- `++` (list concat operator) is not yet implemented — see [[concat-operators.language]].
+  The example uses `++` for readability; today you would write the same with `List.concat`:
+  ```piescript
+  let source_ids = List.concat
+    (List.map (fn r -> r.id) okta_users)
+    (List.map (fn r -> r.id) ad_users);
+  ```
 - The role filter for Okta uses `==` per role; a future `List.any` over a role list would
   be cleaner. Relates to [[string-concat.language]] and list membership operations.
 - For larger datasets, this pattern could use Exchange streaming (Block G) instead of
