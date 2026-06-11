@@ -29,7 +29,9 @@ A typed functional language for distributed computation in Elasticsearch. Uses J
 primitives (`spawn`/`when`/`send`/channels) for async coordination atop a pure functional core
 (lambdas, let-bindings, records, pattern matching, recursion).
 
-The implementation lives at [elasticsearch/x-pack/plugin/piescript](https://github.com/tiansivive/elasticsearch/tree/piescript/x-pack/plugin/piescript).
+The implementation lives at [elasticsearch/x-pack/plugin/piescript](https://github.com/tiansivive/elasticsearch/tree/play/piescript/x-pack/plugin/piescript)
+(fork `tiansivive/elasticsearch`, branch `play/piescript` — its README has the workflow setup
+instructions, including cloning this repo into `docs/z-piescript`).
 
 ## Structure
 
