@@ -14,3 +14,4 @@ Apache Spark: ship compute to data (RDD/DataFrame). Same "bring compute to data"
 - inspired-by: [[dryadlinq.comparable]] — FlumeJava, DryadLINQ are the academic predecessors
 - analogous-to: [[data-locality.distributed]] — same "ship compute to data" principle; piescript makes it explicit, Spark makes it implicit
 - evolved-into: [[map-reduce.distributed]] — Spark is MapReduce's practical successor
+- informs: [[errors-as-messages.coordination]] — RDD lineage recomputation is the fault-tolerance strategy of implicit distribution; never explicitly weighed in D-056 (implicitly foreclosed by D-040/D-042 — under explicit distribution the runtime cannot know how to recompute). A user-space supervisor re-sending a pure closure is manual lineage replay: purity makes recomputation safe in both systems.

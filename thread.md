@@ -604,3 +604,17 @@ RESOLVED runtime vs user-space responsibility split (minimal contract) — D-056
 RESOLVED MV consumption semantics (consume + selective matching; broadcast as library) — D-056
 RESOLVED identity mechanism (root TaskId, causal chain, capture-as-self) — D-057
 RESOLVED "death notification" definition (just the err message; no subsystem) — D-056
+
+---
+
+## session:rdd-lineage-connection — 2026-06-11 [comparable, fault-tolerance, coordination]
+
+Brief Q&A on RDDs surfaced a gap: lineage-based recomputation (Spark's distinctive
+fault-tolerance contribution) was never explicitly considered-and-rejected in D-056's
+alternatives — it was implicitly foreclosed by the D-040/D-042 explicit-distribution fork
+(the runtime cannot know how to recompute under user-controlled distribution). The idea
+resurfaces in user space: a supervisor re-sending a pure closure is manual lineage replay,
+safe for the same purity reasons as in Spark. Recorded as edges only (no new zettel).
+
+[[spark.comparable]] -- informs -> [[errors-as-messages.coordination]] — lineage replay vs errors-as-messages
+[[errors-as-messages.coordination]] -- contrasts-with -> [[spark.comparable]] — revisit when supervision patterns are designed

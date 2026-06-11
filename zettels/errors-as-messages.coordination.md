@@ -59,4 +59,5 @@ computation), matching the per-node inbox + computation identity. `fail a; P` is
 - uses: [[inbox.infrastructure]] — the err inbox follows the inbox precedent (well-known per-node channel)
 - informs: [[channel-lifecycle.infrastructure]] — orphaned-channel cleanup is supervisor-driven via the termination protocol
 - inspired-by: [[beam-lessons.comparable]] — errors-as-messages (trap_exit/monitors) and supervision-as-library (OTP) are the precedents
+- contrasts-with: [[spark.comparable]] — RDD lineage recomputation is the recovery strategy under implicit distribution; not weighed in D-056's alternatives (foreclosed earlier by D-040/D-042). The idea resurfaces in user space: a supervisor re-sending a pure closure is manual lineage replay — worth revisiting when supervision patterns are designed.
 - example-of: see [[error-handling-patterns.example]] — the architecture as concrete programs
