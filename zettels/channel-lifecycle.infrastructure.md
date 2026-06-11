@@ -10,11 +10,16 @@ refs:
 
 Channels registered in [[channel-registry.infrastructure]] as `SubscribableListener`s:
 
-- Regular channels auto-remove on completion (via callback wrapper)
-- The [[inbox.infrastructure]] is persistent (never removed)
-- Leak risk: if a channel is created ([[spawn-bang.coordination]]) but never completed (no [[send.coordination]], no [[when-synchronization.coordination]]), the `SubscribableListener` stays in the registry indefinitely
+- Registry entries are **never removed** — not even on completion (`ChannelRegistry.java`
+  javadoc: the `SubscribableListener` must stay visible for late `when` lookups racing with
+  `send`; cleanup deferred to a per-evaluation lifecycle). Corrected 2026-06-10 — this zettel
+  previously claimed auto-removal on completion, which the code contradicts.
+- The [[inbox.infrastructure]] is persistent by design (never removed)
+- Leak risk: every channel leaks today; channels created ([[spawn-bang.coordination]]) but never completed additionally hold an uncompleted listener forever
 - No explicit `Shard.release` equivalent for channels
-- Future: scope-based cleanup or [[bracket-patterns.language]]
+- Future: scope-based cleanup or [[bracket-patterns.language]]; close/fail semantics belong to
+  the channel termination protocol to be defined in the [[multi-value-channels.coordination]]
+  design
 
 **Depends on**: [[channel-registry.infrastructure]]
 **Enables**: (none directly)

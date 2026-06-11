@@ -494,3 +494,113 @@ ENQUEUE [[action-prefix-rename.infrastructure]] — 2026-05-06: starting a node 
 SPAWN [[dynamic-field-types.data]] + [[unmapped-field-surfacing.data]] + [[use-with-annotations.data]] — 2026-05-07: `kibana.alert.risk_score` missing from `_field_caps` motivated splitting "field set unknown to caps" into two paths (auto-surface partial-mapping via `include_unmapped`; user `with { ... }` annotation). Verification depths and Maybe-vs-T linked to [[null-as-bottom.types]]. All deferred pending verification of the immediate field-caps behaviour.
 
 RESOLVED `List.concat` builtin shipped 2026-05-07 — addresses immediate list concat gap; operator form `++` deferred to [[concat-operators.language]] (new). [[string-concat.language]] reframed; [[watchlist-cross-ref.example]] note updated.
+
+---
+
+## session:2026-06-10 [cleanup, data]
+
+RESOLVED `ResolvedMapping.partiallyUnmappedFields` — dropped in commit 17d849d (2026-06-04); `ResolvedMapping` narrowed to `(indexPattern, fieldMap)`. Broader unknown-field surfacing remains deferred: [[unmapped-field-surfacing.data]] + [[dynamic-field-types.data]].
+---
+
+## session:skill-canonicalization — 2026-06-10 [meta, tooling, workflow]
+
+Created the `zettelkasten` agent skill and flipped process docs to **skill-canonical**: skills
+under `<plugin>/.claude/skills/` (Cursor symlinks under `.cursor/skills/`) are now the single
+source of truth for *procedure*; meta zettels keep the *rationale* and link back via the new
+`skill:` ref prefix (added to README.md / index.md ref tables). Fixed stale
+`docs/design-space/` → `docs/z-piescript/` paths in the elasticsearch-repo docs (`CLAUDE.md`,
+`docs/AGENTS.md`, `docs/presentation.md`, `load` + `create-plan` skills) and in this
+zettelkasten (`index.md` vault path, [[thread-queue-system.meta]] thread/queue paths).
+
+[[thread-queue-system.meta]] -- procedure-extracted-to -> skill:zettelkasten
+[[implementation-plan-workflow.meta]] -- procedure-extracted-to -> skill:create-plan
+[[design-to-implementation.meta]] -- refers-to -> skill:zettelkasten, skill:create-plan
+[[cursor-plan-template.meta]] -- refers-to -> skill:create-plan
+
+RESOLVED Zettelkasten interaction skill (global queue) — `skill:zettelkasten` created; "skill vs CLAUDE.md guidance?" answered: skill, with CLAUDE.md/AGENTS.md pointing at it
+RESOLVED stale `docs/design-space/` references in live docs — renamed directory now consistently `docs/z-piescript/` (archive and historical thread/session records left untouched)
+
+[[data-access-restructure.session]] -- content-preserved-in -> README.md — file-naming avoid-redundancy guidance ported from index.md
+RESOLVED `index.md` — deleted 2026-06-10: fully superseded by README.md + VOCABULARY.md + WORKFLOW.md (manifest entry points); unique file-naming guidance ported to README.md § File naming
+
+---
+
+## session:mv-channels-error-semantics — 2026-06-10/11 [error-handling, coordination, language, meta]
+
+Error-handling design exploration that uncovered two intent-vs-implementation gaps and a
+migration-fidelity pattern. Established: MV (queue) channels are THE channel model (single-value
+`SubscribableListener` is an interim stand-in — replacement, not extension; not streaming, no
+backpressure — data-plane streaming is Exchange's concern); `when` was intended as a
+non-blocking standing reaction rule, and the implemented when-as-expression (suspends the
+program continuation; one-shot) is a bug never recorded as a decision (Block A plan struct
+spec; D-041 silent on it). Code-verified: when suspends via CoreLet CPS sequencing
+(Evaluator.java:111, EvalCoordination.java:30); block expr-stmts silently dropped
+(Blocks.java:74, asserted by ElaboratorTests:497 — intentional in the pure Phase 1 language,
+bug since effects arrived; legit use case now: applications of effect-wrapping fns); remote
+closure death → WARN only → orphaned channel hangs waiters. Recovered pre-trim vision (git
+3abf7ab6a679): "multiple when clauses fire simultaneously". Errors-as-messages confirmed as
+settled direction (BEAM trap_exit/monitors, distributed JC failure detection — verified
+externally); single-value-era constructs (recover clause, dual-channel pairs, or-rules)
+explored and parked. Open questions (err inbox role, routing without supervision, runtime vs
+user-space responsibility, termination protocol, all API shapes) deliberately NOT recorded —
+under live discussion.
+
+[[when-expression-blocking.bug]] -- deviates-from -> [[when-reaction-rules.coordination]]
+[[multi-value-channels.coordination]] -- replaces -> [[channels.infrastructure]] (interim impl)
+[[multi-value-channels.coordination]] -- blocks -> [[error-channels.coordination]]
+[[cham-patterns.coordination]] -- extends -> [[when-reaction-rules.coordination]] — scope narrowed to the speculative generalization
+[[non-blocking.principle]] -- part-of -> [[design-principles.hub]] — 7th principle
+[[channel-lifecycle.infrastructure]] -- corrected -> registry entries are never removed (code contradicted the zettel)
+
+SPAWN [[when-reaction-rules.coordination]] — intended when semantics, recovered from pre-trim vision
+SPAWN [[when-expression-blocking.bug]] — defect record for when-as-expression
+SPAWN [[expr-statements.language]] — block expr-stmt silent drop + fix-needs-design
+SPAWN [[non-blocking.principle]] — promoted from vision.md one-liner
+SPAWN [[migration-status-fidelity.meta]] — coverage-survives-status-doesn't pattern (3 instances)
+
+ENQUEUE [[expr-statements.language]] — fix design (rejection wrong; `let _` desugar candidate)
+ENQUEUE [[migration-status-fidelity.meta]] — archived-plan sweep for trapped intent
+ENQUEUE streams→sequences rewording in MV channel descriptions
+ENQUEUE MV channel + when reaction-rules design session — produces the ADR superseding Block A's implicit semantics
+
+---
+
+## session:mv-channels-error-semantics (continued) — 2026-06-11 [error-handling, coordination, language, decisions]
+
+Resolved the open questions from the first block via live discussion; recorded as **D-056**
+(errors as messages — minimal runtime contract) and **D-057** (process identity — root TaskId
+on the causal chain). Settled: per-node err inbox is the MAIN runtime mechanism (not fallback),
+an ordinary consume channel; supervision is user-space piescript (forwarder rules + locality
+routing; OTP-as-library precedent); "death notification" is nothing — just the err message
+replacing the WARN at TransportPiescriptSendAction:127; introspection dropped from the core
+pattern (handlers hold their own channel refs). Uniform CONSUME semantics with selective
+matching for all MV channels (JC tutorial verified: "each message fulfills at most one call");
+broadcast = user-space state-as-message distributor; identical patterns compete (work queue).
+Identity: root TaskId by value on the causal chain (wire field + setParentTask); self = deps
+constant + closure capture; sender-side minting of per-task refs left open. Writing the syntax
+exposed the non-linear pattern problem: bound variables in patterns BIND, not compare →
+pattern guards promoted to hard prerequisite (second consumer after mixed-type-branches);
+guards participate in the consumption transaction; guard keyword `when` collides with channel
+`when` (`if` candidate). Idris `with`-rule ergonomics parked as research.
+
+[[errors-as-messages.coordination]] -- refines -> [[error-channels.coordination]] — settles the open architecture
+[[process-identity.coordination]] -- prerequisite-for -> [[errors-as-messages.coordination]]
+[[process-identity.coordination]] -- motivates -> [[pattern-guards.language]] — runtime ids unfilterable by literal patterns
+[[pattern-guards.language]] -- constrains -> [[join-automaton.coordination]] — consume only on pattern+guard
+[[multi-value-channels.coordination]] -- settled -> consume + selective matching (D-056)
+[[bound-variable-patterns.language]] -- alternative-to -> [[pattern-guards.language]] — ergonomics research later
+
+SPAWN [[errors-as-messages.coordination]] — the settled D-056 architecture
+SPAWN [[process-identity.coordination]] — the settled D-057 identity design
+SPAWN [[error-handling-patterns.example]] — multi-tenancy/forwarder/work-queue/distributor/supervision programs
+SPAWN [[bound-variable-patterns.language]] — non-linear pattern problem + Idris-with research anchor
+
+ENQUEUE [[process-identity.coordination]] — D-057 implementation slice (first iterable step)
+ENQUEUE [[bound-variable-patterns.language]] — speculative ergonomics research session
+
+RESOLVED err-inbox role (main mechanism, not fallback) — D-056
+RESOLVED error routing without supervisor model (routing home IS supervision; user-space) — D-056
+RESOLVED runtime vs user-space responsibility split (minimal contract) — D-056
+RESOLVED MV consumption semantics (consume + selective matching; broadcast as library) — D-056
+RESOLVED identity mechanism (root TaskId, causal chain, capture-as-self) — D-057
+RESOLVED "death notification" definition (just the err message; no subsystem) — D-056

@@ -9,11 +9,17 @@ refs:
 
 Chemical Abstract Machine (Berry & Boudol 1992) with [[curry-narrowing.language]] for functional patterns on channel message stores. Maximal parallel firing: runtime discovers and concurrently executes all non-overlapping matches. Control-plane performance model — channel stores are small.
 
-**Depends on**: [[multi-value-channels.coordination]]
+**Scope note** (2026-06-10): this zettel covers only the speculative *generalization* —
+functional patterns via narrowing. The **baseline** standing-rule semantics of `when`
+(presence-firing, multiple coexisting rules, re-arming) is not speculative; it is the intended
+model, recorded at [[when-reaction-rules.coordination]]. Earlier versions of this zettel
+conflated the two, which mislabeled the baseline as `someday`.
+
+**Depends on**: [[multi-value-channels.coordination]], [[when-reaction-rules.coordination]]
 **Enables**: (none directly)
 **Connections**:
 - part-of: [[future-coordination.roadmap]]
-- related: [[multi-value-channels.coordination]] — generalizes [[when-synchronization.coordination]] from simple presence to functional patterns; highly speculative
+- extends: [[when-reaction-rules.coordination]] — generalizes presence-firing baseline rules to functional patterns over message stores; the narrowing part is speculative
 - related: [[join-calculus.coordination]] — CHAM reaction rules generalize join calculus join patterns to functional pattern matching over message stores
 - related: [[curry-narrowing.language]] — functional-logic patterns enable declarative concurrent reactions
 - uses: [[logic-programming.hub]] — functional patterns on channel stores use logic-programming-style search

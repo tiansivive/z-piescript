@@ -17,3 +17,4 @@ refs:
 - part-of: [[block-c.roadmap]]
 - inspired-by: [[join-calculus.coordination]] — matches pi-calculus asynchronous output semantics; decouples transport response from evaluation lifecycle
 - prerequisite-for: [[result-types.types]] — future: `send` returns a `Result` value once sum types land, surfacing delivery errors to the caller
+- informs: [[error-channels.coordination]] — the closure-evaluation error class (currently WARN-logged on the target node, invisible to the initiator) is the primary input to the errors-as-messages design

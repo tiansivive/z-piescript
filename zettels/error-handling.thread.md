@@ -12,8 +12,27 @@ provenance), resource cleanup (bracket patterns), and distributed fault toleranc
 
 ## Sequence
 
+0. **MV channels + `when` reaction semantics** [[multi-value-channels.coordination]],
+   [[when-reaction-rules.coordination]] — needs-design, **now**
+   Prerequisite for the runtime error story: errors-as-messages (D-056,
+   [[errors-as-messages.coordination]]) must be designed on queue semantics with
+   standing rules, not the interim one-shot channels. Consume + selective matching
+   settled; termination protocol, drain policy, envelope stamping in scope.
+   _Shared with: distributed-coordination_
+
+0b. **Process identity** [[process-identity.coordination]] — **ready** (D-057)
+   Root TaskId on the causal chain: `EvalDependencies.programId`, wire field on
+   `PiescriptSendRequest`, `setParentTask`, stamped at catch sites. First
+   implementable slice — independent of #0; everything above depends on it.
+
+0c. **Pattern guards** [[pattern-guards.language]] — needs-design, promoted (D-056)
+   Hard prerequisite: selective consumption on runtime-assigned identity is
+   inexpressible without guards (or pins — [[bound-variable-patterns.language]]).
+   _Shared with: language-expressiveness_
+
 1. **Error provenance** [[error-provenance.language]] — ready
    Thread `Source` through evaluator so runtime errors point to call sites.
+   Independent of #0 — error messages need provenance regardless.
 
 2. **Forall type** [[forall-type.types]] — ready
    D-038 tech debt. `@AwaitsFix` tests. Unblocks bidir checking.
@@ -50,6 +69,13 @@ provenance), resource cleanup (bracket patterns), and distributed fault toleranc
 **Depends on**: (none — root thread)
 **Enables**: (none directly)
 **Connections**:
+- includes: [[multi-value-channels.coordination]]
+- includes: [[when-reaction-rules.coordination]]
+- includes: [[error-channels.coordination]]
+- includes: [[errors-as-messages.coordination]]
+- includes: [[process-identity.coordination]]
+- includes: [[pattern-guards.language]]
+- includes: [[error-handling-patterns.example]]
 - includes: [[error-provenance.language]]
 - includes: [[forall-type.types]]
 - includes: [[adts.types]]

@@ -1,18 +1,23 @@
 ---
 tags: [meta, workflow, concept]
-refs: []
+refs:
+  - skill:zettelkasten
+  - skill:create-plan
 ---
 # Design-to-Implementation Workflow
 
 The path from design discussion to shipped code follows a consistent pipeline through the
 zettelkasten. Agents should follow this workflow and load all `meta` and `workflow` zettels
-at session start.
+at session start. The **operating procedures** live in two skills: `skill:zettelkasten`
+(knowledge-base writes — zettels, edges, thread, queue) and `skill:create-plan` (plan
+authoring and execution).
 
 ## Pipeline
 
 
 1. Discussion → atomic zettels
    Surface a concept → create a zettel in zettels/ → tag, connect, thread
+   (procedure: skill:zettelkasten)
 
 2. Hub zettel → organize
    When a topic grows beyond a single zettel → create a hub with includes edges.
@@ -28,8 +33,8 @@ at session start.
    When ready to build → create a plan (.cursor/plans/) from the hub.
    The plan scopes ONE implementation phase from the hub's larger picture.
    Plan tasks reference specific zettels. The hub lives on; the plan completes.
-   For the full checklist (queue zettel, thread, session zettel, debug scripts, review stops),
-   see [[implementation-plan-workflow.meta]] and copy `_TEMPLATE.plan.md` per [[cursor-plan-template.meta]].
+   (procedure: skill:create-plan; plan shape: [[cursor-plan-template.meta]];
+   rationale: [[implementation-plan-workflow.meta]])
 
 5. Queue → track work
    Pending items in [[global-pending.queue]] or thread-specific queues.
@@ -51,12 +56,12 @@ past decisions, current implementation, future directions, theoretical connectio
 captures one scoped phase of implementation. When the plan completes, the hub gains
 `implemented` connections but keeps its future/theoretical edges for the next phase.
 
-**Agents should load meta zettels at session start** to understand the workflow, tag
-vocabulary, edge conventions, and thread/queue system before doing design or implementation
-work.
+**Agents should load meta zettels at session start** to understand the conceptual model, and
+follow the skills (`skill:zettelkasten`, `skill:create-plan`) for the procedures — the skills
+are the single source of truth for process; meta zettels carry the rationale.
 
 **Depends on**: [[thread-queue-system.meta]], [[tags-as-triples.meta]]
 **Connections**:
 - extends: [[thread-queue-system.meta]] — adds the hub→plan→implement pipeline on top of the thread/queue workflow
 - complements: [[universal-vs-topic.meta]] — meta zettels document the process; topic zettels document the design
-- refined-by: [[implementation-plan-workflow.meta]] — concrete plan authoring/execution checklist and template
+- refined-by: [[implementation-plan-workflow.meta]] — plan-phase rationale; checklist lives in skill:create-plan

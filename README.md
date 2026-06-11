@@ -107,6 +107,7 @@ One-paragraph description of the concept.
 | `resource` | Any URI | `resource:https://arxiv.org/pdf/1306.6032.pdf` |
 | `thread` | Work thread | `thread:error-handling` |
 | `queue` | Queue | `queue:global-pending` |
+| `skill` | Agent skill in the project repo (`<plugin>/.claude/skills/<name>/SKILL.md`) — canonical procedure docs | `skill:zettelkasten` |
 
 ## File naming
 
@@ -114,6 +115,14 @@ One-paragraph description of the concept.
 
 Read left to right: concept first, then progressively narrowing context hints.
 Multiple qualifiers are fine: `risk-scoring.incremental.example.md`.
+When no qualifier is needed: `recursion.md`, `error-handling.md`.
+
+**Avoid redundancy** between the concept name and the qualifier. If the concept
+already contains the domain, don't repeat it as a qualifier:
+- Good: `data-access-hierarchy.md` (concept is `data-access-hierarchy`, no qualifier needed)
+- Bad: `data-access-hierarchy.data.md` (`data` is redundant with `data-access`)
+- Good: `risk-scoring-incremental.example.md` (`.example` adds information)
+- Bad: `risk-scoring-example.example.md` (`example` appears twice)
 
 **Do not use qualifiers for classification.** Tags are for classification.
 The qualifier is a visual grouping hint — scripts and tools must never rely on

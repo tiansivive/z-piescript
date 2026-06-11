@@ -13,6 +13,7 @@ The automaton structure:
 - **Transitions**: message arrivals that advance partial matches
 - **Accepting states**: all heads of a join pattern matched -- fire the reaction
 - **Conflict resolution**: when multiple patterns match simultaneously, committed-choice semantics (first match wins, no backtracking)
+- **Guards in the transaction** (D-056): a rule fires — and consumes its messages — only when pattern AND guard both pass; a guard failure must leave the messages in the store ([[pattern-guards.language]])
 
 This is the runtime counterpart to [[cham-patterns.coordination|CHAM patterns]] -- CHAM describes the semantics (chemical reactions on message stores), the join automaton provides the efficient implementation (compiled dispatch instead of brute-force store scanning).
 

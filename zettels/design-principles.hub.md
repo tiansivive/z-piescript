@@ -15,6 +15,7 @@ implementation choice.
 4. **Incremental delivery** [[incremental-delivery.principle]]
 5. **Elasticsearch-native** [[es-native.principle]]
 6. **Grounded in process algebra** [[join-calculus.coordination]]
+7. **Non-blocking by design** [[non-blocking.principle]]
 
 **Depends on**: (none)
 **Enables**: (none directly)
@@ -25,3 +26,4 @@ implementation choice.
 - includes: [[incremental-delivery.principle]]
 - includes: [[es-native.principle]]
 - includes: [[join-calculus.coordination]]
+- includes: [[non-blocking.principle]]

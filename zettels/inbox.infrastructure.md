@@ -10,8 +10,11 @@ refs:
 
 Well-known "inbox" [[channels.infrastructure]] on every node. Receives [[closure-val.language]], evaluates them asynchronously with local node info as the lambda argument.
 - [[fire-and-forget.coordination]]: transport response returns before evaluation
-- Evaluation errors logged at WARN on target node, never propagated to sender
+- Evaluation errors logged at WARN on target node, never propagated to sender — to be replaced
+  by err inbox delivery (D-056, [[errors-as-messages.coordination]])
 - [[topology.infrastructure]] node records include an `inbox` field
+- Precedent-setter: the inbox is effectively a multi-value channel in disguise (persistent
+  handler consuming unboundedly many messages) — the per-node err inbox follows the same shape
 
 **Depends on**: [[channel-registry.infrastructure]], [[fire-and-forget.coordination]], [[closure-val.language]]
 **Enables**: [[code-mobility.coordination]]

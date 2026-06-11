@@ -42,3 +42,8 @@ Action lines (`ENQUEUE`, `RESOLVED`, `SPAWN`) record workflow events.
 
 Zettels are the atoms. Threads are paths through the graph. Queues are pending edges.
 See [[thread-queue-system.meta]] for the full design.
+
+The agent operating procedure (creating/updating/connecting zettels, thread session blocks,
+queue actions) is the **zettelkasten skill** in the project repo
+(`<plugin>/.claude/skills/zettelkasten/SKILL.md`, ref `skill:zettelkasten`) — the single
+source of truth for process.

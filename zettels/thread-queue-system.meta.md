@@ -2,14 +2,16 @@
 tags: [meta, tooling, designed, concept]
 refs:
   - session:4e5e689a-7ddc-4839-9440-05e441be028b
+  - skill:zettelkasten
 ---
 # Thread & Queue System
 
 A lightweight work layer on top of the zettelkasten. Zettels are the atomic knowledge
-units; threads and queues are workflows over them.
+units; threads and queues are workflows over them. The operating procedure (session blocks,
+enqueue/resolve, queue checkboxes) lives in `skill:zettelkasten`; this zettel is the design.
 
-- **Thread** (`docs/design-space/thread.md`): an append-only paper trail of work across sessions. Structured as delimited blocks per session, each recording a path through the zettel graph using labeled edges (`[[A]] -- verb -> [[B]]`) and action annotations (`ENQUEUE`, `RESOLVED`, `SPAWN`). Like the ADR file -- a historical record, not a process engine.
-- **Queue** (`docs/design-space/queue.md`): a flat FIFO list of pending work. Each item references a zettel. Items are resolved top-down. Ephemeral in attention (once all resolved, nobody looks), persistent in existence (the file stays as record).
+- **Thread** (`thread.md` at the zettelkasten root): an append-only paper trail of work across sessions. Structured as delimited blocks per session, each recording a path through the zettel graph using labeled edges (`[[A]] -- verb -> [[B]]`) and action annotations (`ENQUEUE`, `RESOLVED`, `SPAWN`). Like the ADR file -- a historical record, not a process engine.
+- **Queue** ([[global-pending.queue]], a zettel tagged `queue`; scoped per-phase queues follow the same shape): a flat FIFO list of pending work. Each item references a zettel. Items are resolved top-down. Ephemeral in attention (once all resolved, nobody looks), persistent in existence (the file stays as record).
 - **Queues synchronize threads** the way [[channels.infrastructure]] synchronize spawned computations in piescript. An `ENQUEUE` action in a thread defers work; a `RESOLVED` action records completion. Blocking (`BLOCKED` + `RESOLVED` pair) and non-blocking defers are both supported.
 
 **Cross-domain parallels:**

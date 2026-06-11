@@ -1,13 +1,20 @@
 ---
-tags: [coordination, language, concurrency, implemented, pi-calculus, documentation]
+tags: [coordination, language, concurrency, implemented, pi-calculus, documentation, known-issue]
 refs:
   - adr:D-040
   - adr:D-041
   - code:Whens.java
   - code:EvalCoordination.java
   - session:80f0b64a-5e21-4b2e-acda-fabde482cc87
+  - session:mv-channels-error-semantics
 ---
 # When Synchronization
+
+> **Interim semantics.** The implemented `when` is a one-shot *expression* whose value is its
+> body's result, which suspends the program's continuation until the channels fire. This
+> deviates from the intended standing-reaction-rule semantics — see
+> [[when-reaction-rules.coordination]] (intent) and [[when-expression-blocking.bug]] (defect
+> record). What follows documents the implementation as it exists.
 
 `when (ch1 x) & (ch2 y) -> body` synchronizes on one or more [[channels.infrastructure]]:
 - Uses a [[positional-collector.coordination]] (`AtomicArray` + `CountDown`) to preserve [[de-bruijn-indices.language]] binding order

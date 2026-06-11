@@ -195,6 +195,7 @@ that [metrics.md](metrics.md) computes on. They get their own sections in the ze
 | `makes-redundant` | Eliminates the need for the linked item |
 | `obsoletes` | The linked item is no longer valid due to changed conditions |
 | `rejected-in-favor-of` | Was considered but not chosen |
+| `deviates-from` | Implemented behavior departs from the linked intended design (defect, not decision) |
 | `contrasts-with` | Different approach to same problem (adversarial) |
 | `alternative-to` | Different approach, both viable (non-adversarial) |
 | `complements` | Works well together with |
