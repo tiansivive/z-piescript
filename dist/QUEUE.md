@@ -1,14 +1,18 @@
-## Global Pending Queue (9 open)
+## Global Pending Queue (13 open)
 
-- [ ] Zettelkasten interaction skill — teach agents how to create/update/connect zettels (skill vs CLAUDE.md guidance?)
 - [ ] Backfill thread.md — add retroactive session blocks for prior sessions (best-effort from transcripts)
 - [ ] [[es-conventions-debt.infrastructure]] — TransportVersion, logging, ActionListener patterns, dedicated thread pool (production punch list)
 - [ ] [[lsp.tooling]] — Language Server Protocol implementation
 - [ ] [[syntax-highlighting.tooling]] — syntax highlighting definitions
 - [ ] [[repl.tooling]] — REPL / interactive evaluation mode
-- [ ] `ResolvedMapping.partiallyUnmappedFields` is dead post-rebase (2026-04-15) — `IndexResolutionPrePass` passes `trackUnmappedFieldIndices=false` (matching ESQL's default after #145991), so `EsIndex.fieldToUnmappedIndices()` is always empty and the field is unread by the elaborator. Resolution is now coupled to [[unmapped-field-surfacing.data]]: either drop the field, or actually populate it (with the ESQL #145920 OOM risk) and put it to use
 - [ ] [[action-prefix-rename.infrastructure]] — `PiescriptAction.NAME = "cluster:compute/piescript"` is not in `TransportService.VALID_ACTION_PREFIXES`; ES logs WARN at startup and has a TODO to promote it to a hard error. Rename to `cluster:admin/piescript/eval` (or similar) and supersede D-055
 - [ ] [[dynamic-field-types.data]] — fields missing from the merged field-caps view (sparse / user-known runtime fields) can't be referenced today. Two paths drafted: [[unmapped-field-surfacing.data]] (sparse, automatic, also resolves the `partiallyUnmappedFields` cleanup) and [[use-with-annotations.data]] (general, `use ... with { ... }` syntax)
+- [ ] [[expr-statements.language]] — block expr-stmts silently dropped (Blocks.java:74, asserted by `testBlockWithExprStmt`); fix needs design (rejection is wrong: applications of effect-wrapping fns are legit); flip the test with the fix
+- [ ] [[migration-status-fidelity.meta]] — sweep remaining archived plans/docs (phase3/phase4 plans, pre-join-calculus docs) for trapped design intent
+- [ ] Reword "streams of messages" → "sequences of messages" where MV channels are described (architecture.md § Future: Multi-Value Channels; vision pointers) — kills the streaming-conflation attractor
+- [ ] MV channel + `when` reaction-rules design session — [[multi-value-channels.coordination]], [[when-reaction-rules.coordination]]; produces the ADR superseding Block A's implicit when-as-expression semantics
+- [ ] [[process-identity.coordination]] — implement the D-057 identity slice: `programId` (root TaskId) on `EvalDependencies` + `PiescriptSendRequest` wire field + `setParentTask` in `sendRemote` + threading in `handleInbox`; WARN log gains attribution; follow-on: `ChannelRegistry` ownership tagging
+- [ ] [[bound-variable-patterns.language]] — speculative research session: non-linear / pin-pattern ergonomics beyond guards (Erlang implicit equality, Elixir `^`, Idris `with`-rule inspiration without dependent types)
 
 ## Pattern Matching Phase 1 Queue (0 open)
 
@@ -32,9 +36,10 @@
 - [later] Logical Plan Compilation (open)
 - [someday] Numeric Precision (open)
 
-## Distributed Coordination (9 pending)
+## Distributed Coordination (10 pending)
 
 - [needs-design] Multi-Value Channels (open)
+- [needs-design] When as Reaction Rules (open)
 - [needs-design] Actor Model Lifecycle (designed)
 - [needs-design] Named Channels (designed)
 - [later] Channel Lifecycle (tech-debt)
@@ -44,18 +49,25 @@
 - [someday] CHAM Patterns (open)
 - [someday] Long-Lived Computations (open)
 
-## Error Handling & Fault Tolerance (10 pending)
+## Error Handling & Fault Tolerance (17 pending)
 
+- [next] Errors as Messages — Minimal Runtime Contract (designed)
+- [next] Process Identity (designed)
 - [next] Error Provenance (tech-debt)
 - [next] Forall Type (tech-debt)
 - [ready] Pattern Matching (open)
 - [blocked] Create vs Index (blocked)
+- [needs-design] Multi-Value Channels (open)
+- [needs-design] When as Reaction Rules (open)
+- [needs-design] Error Channels (open)
+- [needs-design] Pattern Guards (open)
 - [needs-design] Algebraic Data Types (open)
 - [later] Result Types (open)
 - [later] Bracket Patterns (open)
 - [later] Channel Lifecycle (tech-debt)
 - [someday] Saga Coordination (open)
 - [someday] OTP Supervision (open)
+-  Error Handling Patterns — Syntax Examples (open)
 
 ## External Interaction (11 pending)
 

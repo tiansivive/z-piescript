@@ -1,4 +1,4 @@
-# Roadmap Threads (7 threads, 79 items)
+# Roadmap Threads (7 threads, 86 items)
 
 ## Data Completeness (1 implemented, 2 designed, 14 open)
 
@@ -24,25 +24,31 @@
 |  | ○ | Dynamic Field Types |
 | now | ✓ | Block G — Streaming Data Access via Compute Engine |
 
-## Distributed Coordination (6 open)
+## Distributed Coordination (7 open)
 
-> From multi-value channels to actor-model lifecycle and supervised long-lived computations. This thread extends piescript's Join Calculus coordination model beyond single-value channels toward streaming patterns, persistent identity, scheduled execution, and fault-tolerant distributed processes.
+> From multi-value channels to actor-model lifecycle and supervised long-lived computations. This thread replaces the interim single-value channel implementation with the intended queue model, and extends the Join Calculus coordination layer toward persistent identity, scheduled execution, and fault-tolerant distributed processes.
 
 | Priority | Status | Item |
 |----------|--------|------|
-| next | ○ | Multi-Value Channels |
+| now | ○ | Multi-Value Channels |
+| now | ○ | When as Reaction Rules *(shared: error-handling)* |
 | later | ○ | Channel Lifecycle *(shared: error-handling)* |
 | later | ○ | Dynamic Fan-Out |
 | later | ○ | Fold as Join Pattern |
 | later | ○ | Scheduled Execution |
 | later | ○ | Join Automaton |
 
-## Error Handling & Fault Tolerance (3 implemented, 11 open)
+## Error Handling & Fault Tolerance (3 implemented, 2 designed, 15 open)
 
 > From source-location error messages to OTP-style supervision trees. This thread covers the full spectrum of how piescript handles, reports, and recovers from errors — spanning type-level safety (Result/Option), runtime diagnostics (error provenance), resource cleanup (bracket patterns), and distributed fault tolerance (sagas, supervision).
 
 | Priority | Status | Item |
 |----------|--------|------|
+| now | ○ | Multi-Value Channels *(shared: distributed-coordination)* |
+| now | ○ | When as Reaction Rules *(shared: distributed-coordination)* |
+| next | ◐ | Errors as Messages — Minimal Runtime Contract |
+| next | ◐ | Process Identity |
+| next | ○ | Pattern Guards *(shared: language-expressiveness)* |
 | next | ○ | Error Provenance |
 | next | ○ | Forall Type *(shared: type-foundations)* |
 | next | ○ | Algebraic Data Types *(shared: language-expressiveness)* |
@@ -54,6 +60,7 @@
 | later | ○ | Exhaustiveness Checking *(shared: language-expressiveness)* |
 | later | ○ | Write Context |
 | needs-design | ○ | Error Channels |
+|  | ○ | Error Handling Patterns — Syntax Examples |
 | later | ✓ | Null as Bottom |
 | later | ✓ | Fire-and-Forget Send Semantics |
 |  | ✓ | Pattern Matching Phase 1 Implementation *(shared: language-expressiveness)* |
@@ -76,7 +83,7 @@
 | now | ○ | Recursion Phase 1 Implementation |
 | next | ○ | String Concat |
 | next | ○ | Algebraic Data Types *(shared: error-handling)* |
-| next | ○ | Pattern Guards |
+| next | ○ | Pattern Guards *(shared: error-handling)* |
 | ready | ○ | Pattern Matching *(shared: error-handling)* |
 | later | ○ | GroupBy Combinator |
 | later | ○ | Traverse Combinator |
