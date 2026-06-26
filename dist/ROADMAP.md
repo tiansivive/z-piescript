@@ -1,4 +1,4 @@
-# Roadmap Threads (7 threads, 86 items)
+# Roadmap Threads (7 threads, 87 items)
 
 ## Data Completeness (1 implemented, 2 designed, 14 open)
 
@@ -65,12 +65,13 @@
 | later | ✓ | Fire-and-Forget Send Semantics |
 |  | ✓ | Pattern Matching Phase 1 Implementation *(shared: language-expressiveness)* |
 
-## External Interaction (1 open)
+## External Interaction (2 open)
 
 > How piescript programs interact with the outside world — other services, users, and systems beyond Elasticsearch. Three layers: plugin SPI (typed builtins from Java), FFI (Painless allowlist for ad-hoc JVM access), and the actor model (persistent script identity with REST-exposed channels). Culminates in unifying Transforms, Watcher, and ingest pipelines under a single typed language.
 
 | Priority | Status | Item |
 |----------|--------|------|
+|  | ○ | Multi-Source Enrichment Example |
 |  | ○ | Incremental Risk Scoring Example |
 
 ## Language Expressiveness (6 implemented, 1 designed, 22 open)

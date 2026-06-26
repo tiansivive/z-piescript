@@ -1,4 +1,4 @@
-# Design Space Catalog (518 items)
+# Design Space Catalog (524 items)
 
 - **Accessor Sugar** `accessor-sugar.language.md` [language, syntax, row-types, implemented, documentation]
 - **Action Prefix Rename** `action-prefix-rename.infrastructure.md` [infrastructure, es-internals, security, transport-layer, tech-debt, task, known-issue, deferred, migration]
@@ -118,6 +118,7 @@
 - **Distributed Continuations** `distributed-continuations.obstacle.md` [coordination, continuation, distributed, obstacle, open]
 - **Distributed Coordination** `distributed-coordination.thread.md` [thread, roadmap, coordination, distributed]
 - **Distributed Data Systems** `distributed-data-systems.comparable.md` [comparable, distributed, prior-art, reference]
+- **Distributed Vertical Slice** `distributed-vertical-slice.example.md` [example, distributed, coordination, implemented, mobility, concept]
 - **Doc ID Set Iterator** `doc-id-set-iterator.es-internals.md` [es-internals, lucene, data, documentation]
 - **Doc Values** `doc-values.es-internals.md` [es-internals, lucene, columnar, data, documentation]
 - **Dotted Field Paths** `dotted-field-paths.esql.md` [esql, implemented, tech-debt, task]
@@ -275,6 +276,7 @@
 - **Materialize Typeclass** `materialize-typeclass.types.md` [types, typeclasses, data, materialization, open, needs-design, later, concept]
 - **Meta Variables** `meta-variables.types.md` [types, unification, inference, implemented, documentation]
 - **Migration Status Fidelity** `migration-status-fidelity.meta.md` [meta, known-issue]
+- **Milner — Communicating and Mobile Systems: the π-Calculus** `milner-communicating-mobile-systems.paper.md` [paper, pi-calculus, channels, coordination, theoretical, language, reference]
 - **Milner, Parrow, Walker -- A Calculus of Mobile Processes** `milner-pi-calculus.paper.md` [paper, pi-calculus, coordination, theoretical, concurrency, language, channels, reference]
 - **Mixed-Type Branches** `mixed-type-branches.obstacle.md` [language, types, pattern-matching, obstacle, open, recursion, iteration]
 - **ML Non-Goals** `ml-non-goals.ml.md` [ml, meta, decision, concept]
@@ -291,6 +293,7 @@
 - **Multi-Column Expression Output** `multi-column-expression-output.esql.md` [esql, compilation, open, question, problem]
 - **Multi-Project Index Resolution** `multi-project.infrastructure.md` [infrastructure, es-internals, open, task]
 - **Multi-Shot Continuations** `multi-shot-continuations.control.md` [control-flow, continuation, search, concept]
+- **Multi-Source Enrichment Example** `multi-source-enrichment.example.md` [example, data-processing, esql, open, coordination, concept, motivation]
 - **Multi-Value Channels** `multi-value-channels.coordination.md` [coordination, channels, open, feature, concept, needs-design, now]
 - **Multi-Value Fields (Block H)** `multi-value-fields.data.md` [data, designed, concept, needs-design, next]
 - **Mutable Shared State** `mutable-shared-state.types.md` [types, mutability, open, exploration, concept, someday]
@@ -399,6 +402,7 @@
 - **Risk Score Discussion Session** `risk-score-discussion.session.md` [paper-trail, esql, data, motivation]
 - **Risk Score Pattern** `risk-score-pattern.data.md` [data, esql, implemented, aggregation, concept, example]
 - **Incremental Risk Scoring Example** `risk-scoring-incremental.example.md` [example, external, esql, coordination, lifecycle]
+- **Risk Scoring — Runnable Today (Tier 2)** `risk-scoring-runnable.example.md` [example, data, esql, implemented, coordination, security]
 - **Roadmap Hub** `roadmap-hub.roadmap.md` [roadmap, meta]
 - **Row Merge Semantics** `row-merge-semantics.types.md` [types, row-types, implemented, concept]
 - **Row Operators** `row-operators.types.md` [types, row-types, implemented, concept]
@@ -407,6 +411,7 @@
 - **Runtime Dispatch** `runtime-dispatch.types.md` [types, runtime, open, task, concept, question, needs-design, later]
 - **Saga Coordination** `saga-coordination.coordination.md` [coordination, distributed, write-path, fault-tolerance, open, concept, someday]
 - **Sangiorgi -- Pi-Calculus, Internal Mobility, and Agent-Passing Calculi** `sangiorgi-agent-passing.paper.md` [paper, pi-calculus, mobility, distributed, serialization, theoretical, coordination, concurrency, reference]
+- **Sangiorgi & Walker — The π-Calculus: A Theory of Mobile Processes** `sangiorgi-walker-pi-calculus.paper.md` [paper, pi-calculus, coordination, theoretical, concurrency, types, reference]
 - **Scalar Pervasion** `scalar-pervasion.data.md` [data, types, designed, concept]
 - **Scheduled Execution** `scheduled-execution.lifecycle.md` [lifecycle, open, feature, concept, needs-design, later]
 - **Schema Permutation** `schema-permutation.types.md` [types, row-types, open, concept, question]
@@ -438,6 +443,7 @@
 - **Stack Depth** `stack-depth.language.md` [language, tech-debt, runtime, evaluation, task, known-issue]
 - **Stackful Continuations** `stackful-continuations.control.md` [control-flow, continuation, concept, coroutine]
 - **Stackless Coroutines** `stackless-coroutines.control.md` [control-flow, continuation, concept, coroutine]
+- **Stark & Fiore — Free-Algebra Models for the π-Calculus** `stark-fiore-free-algebra.paper.md` [paper, pi-calculus, effects, theoretical, coordination, reference]
 - **State Machine Loop Compilation** `state-machine-loop.compilation.md` [compilation, continuation, technique, concept, lowering]
 - **Stored Functions Session** `stored-functions.session.md` [paper-trail, tooling, lifecycle]
 - **Stored Functions** `stored-functions.tooling.md` [tooling, lifecycle, open, feature, concept]
