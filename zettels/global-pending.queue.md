@@ -30,6 +30,8 @@ See [[error-handling.thread]], [[language-expressiveness.thread]],
 - [ ] MV channel + `when` reaction-rules design session — [[multi-value-channels.coordination]], [[when-reaction-rules.coordination]]; produces the ADR superseding Block A's implicit when-as-expression semantics
 - [ ] [[process-identity.coordination]] — implement the D-057 identity slice: `programId` (root TaskId) on `EvalDependencies` + `PiescriptSendRequest` wire field + `setParentTask` in `sendRemote` + threading in `handleInbox`; WARN log gains attribution; follow-on: `ChannelRegistry` ownership tagging
 - [ ] [[bound-variable-patterns.language]] — speculative research session: non-linear / pin-pattern ergonomics beyond guards (Erlang implicit equality, Elixir `^`, Idris `with`-rule inspiration without dependent types)
+- [ ] Replace flat `docs/references.md` with generated `dist/REFERENCES.md` — run `python3 scripts/references.py --markdown > dist/REFERENCES.md` and wire into CI; then delete the hand-maintained flat file
+- [ ] Fix `docs/presentation.md` Example D API: `topology "my-index"` → `Cluster.topology "my-index"`, remove `local_node` reference (use inbox arg `info` per [[inbox-dependency-injection.coordination]])
 
 ## Resolved items
 

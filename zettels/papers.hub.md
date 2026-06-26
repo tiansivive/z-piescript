@@ -9,7 +9,7 @@ Index of academic papers that inform piescript's design. Each paper zettel summa
 
 **Convention:** use `cites` edges to link FROM concept zettels TO paper zettels. Use `formalizes` edges to link FROM paper zettels TO concept zettels.
 
-**Includes**: [[wadler-propositions-as-sessions.paper]], [[dunfield-krishnaswami.paper]], [[sangiorgi-agent-passing.paper]], [[linear-haskell.paper]], [[wadler-comprehending-monads.paper]], [[fruhwirth-chr.paper]], [[outsidein-x.paper]], [[flumejava.paper]], [[materialization-strategies.paper]], [[milner-pi-calculus.paper]], [[honda-session-types.paper]], [[honda-multiparty-sessions.paper]], [[wu-schrijvers-fusion.paper]], [[plotkin-pretnar-handlers.paper]], [[fegaras-maier-monoid-comprehensions.paper]], [[granule-graded-modal.paper]]
+**Includes**: [[wadler-propositions-as-sessions.paper]], [[dunfield-krishnaswami.paper]], [[sangiorgi-agent-passing.paper]], [[linear-haskell.paper]], [[wadler-comprehending-monads.paper]], [[fruhwirth-chr.paper]], [[outsidein-x.paper]], [[flumejava.paper]], [[materialization-strategies.paper]], [[milner-pi-calculus.paper]], [[milner-communicating-mobile-systems.paper]], [[sangiorgi-walker-pi-calculus.paper]], [[stark-fiore-free-algebra.paper]], [[honda-session-types.paper]], [[honda-multiparty-sessions.paper]], [[wu-schrijvers-fusion.paper]], [[plotkin-pretnar-handlers.paper]], [[fegaras-maier-monoid-comprehensions.paper]], [[granule-graded-modal.paper]]
 
 **Depends on**: (none)
 **Enables**: (none directly)

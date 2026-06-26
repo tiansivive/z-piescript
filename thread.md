@@ -618,3 +618,32 @@ safe for the same purity reasons as in Spark. Recorded as edges only (no new zet
 
 [[spark.comparable]] -- informs -> [[errors-as-messages.coordination]] — lineage replay vs errors-as-messages
 [[errors-as-messages.coordination]] -- contrasts-with -> [[spark.comparable]] — revisit when supervision patterns are designed
+
+---
+
+## session:doc-gap-backfill — 2026-06-26 [documentation, meta, references, examples]
+
+Gap analysis across `docs/*.md` vs z-piescript zettelkasten (9 parallel subagents, results
+verified). Three subagent "trapped" findings were wrong (free-monad, RawData/Page/Value,
+channel-ref mobility — all already in ZK). Actions taken: created 3 missing paper zettels,
+`scripts/references.py` to regenerate references.md on demand from paper-tagged zettels,
+and 3 new example zettels (Tier 2 runnable risk scoring, distributed vertical slice with
+corrected API, multi-source enrichment with record-update noted as aspirational).
+
+[[stark-fiore-free-algebra.paper]] -- part-of -> [[papers.hub]]
+[[milner-communicating-mobile-systems.paper]] -- part-of -> [[papers.hub]]
+[[sangiorgi-walker-pi-calculus.paper]] -- part-of -> [[papers.hub]]
+[[risk-scoring-runnable.example]] -- example-of -> [[risk-score-pattern.data]]
+[[distributed-vertical-slice.example]] -- example-of -> [[code-mobility.coordination]]
+[[multi-source-enrichment.example]] -- example-of -> [[enrich-unification.external]]
+[[papers.hub]] -- updated -> added 3 new includes
+
+SPAWN [[stark-fiore-free-algebra.paper]] — missing paper zettel (TCS 2008; free-algebra models for pi-calculus)
+SPAWN [[milner-communicating-mobile-systems.paper]] — missing Milner 1999 textbook zettel
+SPAWN [[sangiorgi-walker-pi-calculus.paper]] — missing Sangiorgi & Walker 2001 textbook zettel
+SPAWN [[risk-scoring-runnable.example]] — Risk Tier 2: runnable today, Index.bulk write, no unimplemented sinks
+SPAWN [[distributed-vertical-slice.example]] — distributed example with corrected Cluster.topology API
+SPAWN [[multi-source-enrichment.example]] — enrichment vision with record-update noted as aspirational
+
+ENQUEUE replace flat docs/references.md with generated dist/REFERENCES.md (run references.py --markdown > dist/REFERENCES.md and wire into CI)
+ENQUEUE fix docs/presentation.md Example D API (topology → Cluster.topology, local_node → removed per [[inbox-dependency-injection.coordination]])
